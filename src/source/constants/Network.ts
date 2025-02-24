@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { ethers } from 'ethers'
 import { PROCESS_ENV } from '../env'
 
@@ -54,5 +55,9 @@ const networks: any = {
 }
 
 export const NETWORK = networks[CHAIN_ID]
+if (NETWORK)
+  console.log(`Loaded Network ${NETWORK.name} (${NETWORK.chainId}) by Moonchain Mapper`)
+else
+  throw new Error(`Cannot read network with chainId ${CHAIN_ID} by Moonchain Mapper`)
 export const PROVIDER = new ethers.providers.JsonRpcProvider(NETWORK.rpc_url)
 export const graphNode = NETWORK.graphNode
