@@ -1,14 +1,6 @@
 import { BigNumber } from 'ethers'
 import geojson2h3 from 'geojson2h3'
-import {
-  // latLngToCell,
-  // gridDisk,
-  // cellToBoundary,
-  cellToLatLng,
-  getResolution,
-  // getBaseCellNumber,
-  // h3IndexToSplitLong,
-} from 'h3-js'
+import { cellToLatLng, getResolution } from 'h3-js'
 import { getMep1002HexagonName } from './StogeUtils'
 
 export function int2hex(num_string: string) {
