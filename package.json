@@ -1,0 +1,69 @@
+{
+  "name": "@moonchain/mapper",
+  "type": "module",
+  "version": "0.1.0",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    },
+    "./style.css": "./dist/index.css"
+  },
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./index.d.ts",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "release": "bumpp",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit --skipLibCheck",
+    "preview": "vite preview",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.17",
+    "@chakra-ui/react": "2.7.1",
+    "@emotion/styled": "^11.10.4",
+    "@thirdweb-dev/react": "^3.14.9",
+    "@thirdweb-dev/sdk": "^3.10.29",
+    "ethers": "5",
+    "geojson": "^0.5.0",
+    "geojson2h3": "^1.2.0",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
+    "h3-js": "^4.1.0",
+    "leaflet": "^1.9.3",
+    "localforage": "^1.10.0",
+    "mitt": "^3.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^4.8.0",
+    "react-leaflet": "^4.2.1",
+    "react-use": "^17.6.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.3.0",
+    "@eslint-react/eslint-plugin": "^1.26.2",
+    "@eslint/js": "^9.20.0",
+    "@types/leaflet": "^1.9.3",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "bumpp": "^9.4.1",
+    "eslint": "^9.20.1",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "sass-embedded": "^1.85.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.1.0"
+  }
+}
