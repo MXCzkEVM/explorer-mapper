@@ -1,5 +1,5 @@
 {
-  "name": "@moonchain/mapper",
+  "name": "@moonchain/react-mapper",
   "type": "module",
   "version": "0.1.0",
   "packageManager": "pnpm@9.5.0",
