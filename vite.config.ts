@@ -25,9 +25,15 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
-        ...Object.keys(pkg.dependencies || {}).map(dep => new RegExp(dep)),
-        /react/,
+        ...Object.keys(pkg.dependencies || {})
+          .filter(dep => dep !== 'react-icons')
+          .map(dep => new RegExp(dep)),
+        'react',
+        'react-dom',
+        /react\//,
+        /react-dom\//,
       ],
+
       output: {
         globals: {
           'react': 'React',

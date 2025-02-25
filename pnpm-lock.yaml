@@ -47,12 +47,6 @@ dependencies:
   mitt:
     specifier: ^3.0.1
     version: 3.0.1
-  react:
-    specifier: 18.3.1
-    version: 18.3.1
-  react-dom:
-    specifier: 18.3.1
-    version: 18.3.1(react@18.3.1)
   react-icons:
     specifier: ^4.8.0
     version: 4.12.0(react@18.3.1)
@@ -103,6 +97,12 @@ devDependencies:
   globals:
     specifier: ^15.15.0
     version: 15.15.0
+  react:
+    specifier: ^18.0.0
+    version: 18.3.1
+  react-dom:
+    specifier: ^18.0.0
+    version: 18.3.1(react@18.3.1)
   sass-embedded:
     specifier: ^1.85.0
     version: 1.85.0
@@ -9126,7 +9126,6 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
-    dev: false
 
   /loupe@2.3.7:
     resolution: {integrity: sha512-zSMINGVYkdpYSOBmLi0D1Uo7JU9nVdQKrHxC8eYlV+9YKK9WePqAlL7lSlorG/U2Fw1w0hTBmaa/jrQ3UbPHtA==}
@@ -10385,7 +10384,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
-    dev: false
 
   /react-fast-compare@3.2.1:
     resolution: {integrity: sha512-xTYf9zFim2pEif/Fw16dBiXpe0hoy5PxcD8+OwBnTtNLfIm3g6WxhKNurY+6OmdH1u6Ta/W/Vl6vjbYP1MFnDg==}
@@ -10530,7 +10528,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-package-up@11.0.0:
     resolution: {integrity: sha512-MbgfoNPANMdb4oRBNg5eqLbB2t2r+o5Ua1pNt8BqGp4I0FJZhuVSOj3PaBPni4azWuSzEdNn2evevzVmEk1ohQ==}
@@ -10982,7 +10979,6 @@ packages:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /screenfull@5.2.0:
     resolution: {integrity: sha512-9BakfsO2aUQN2K9Fdbj87RJIEZ82Q9IGim7FqM5OsebfoFC6ZHXgDq/KvniuLTPdeM8wY2o6Dj3WQ7KeQCj3cA==}
