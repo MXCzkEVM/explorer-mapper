@@ -305,188 +305,186 @@ function Mapper(props: { query?: any }) {
   }
 
   return (
-    <>
-      <div className={`mapWarp ${colorMode}`}>
-        <MapContainer
-          center={[51.505, -0.09]}
-          zoom={13}
-          minZoom={3}
-          maxZoom={12}
-          scrollWheelZoom
-          style={{ width: '100%', height: '100%' }}
-        >
-          <TileLayer
-            url={colorMode === 'dark' ? DarkMatter : Voyage}
-          />
+    <div className={`mapWarp ${colorMode}`}>
+      <MapContainer
+        center={[51.505, -0.09]}
+        zoom={13}
+        minZoom={3}
+        maxZoom={12}
+        scrollWheelZoom
+        style={{ width: '100%', height: '100%' }}
+      >
+        <TileLayer
+          url={colorMode === 'dark' ? DarkMatter : Voyage}
+        />
 
-          <GeoJSON
-            data={vertex as any}
-            key={geoJsonKey}
-            style={(feature: any) => {
-              return {
-                weight: feature.properties.weight,
-                color: feature.properties.color,
-                className: `id_${feature.id}`,
-              }
-            }}
-            onEachFeature={(_, layer) => {
-              layer.on('click', handleFeatureClick)
-            }}
-          />
+        <GeoJSON
+          data={vertex as any}
+          key={geoJsonKey}
+          style={(feature: any) => {
+            return {
+              weight: feature.properties.weight,
+              color: feature.properties.color,
+              className: `id_${feature.id}`,
+            }
+          }}
+          onEachFeature={(_, layer) => {
+            layer.on('click', handleFeatureClick)
+          }}
+        />
 
-          {Zoom < 12 || !showMap
-            ? null
-            : (
-                <GeoJSON
-                  data={h3WrapName as any}
-                  key={geoJsonCenterKey}
-                  pointToLayer={addNameToHexagon}
-                  onEachFeature={(_, layer) => {
-                    layer.on('click', handleFeatureClick)
-                  }}
-                />
-              )}
+        {Zoom < 12 || !showMap
+          ? null
+          : (
+              <GeoJSON
+                data={h3WrapName as any}
+                key={geoJsonCenterKey}
+                pointToLayer={addNameToHexagon}
+                onEachFeature={(_, layer) => {
+                  layer.on('click', handleFeatureClick)
+                }}
+              />
+            )}
 
-          <MapEvents />
-        </MapContainer>
+        <MapEvents />
+      </MapContainer>
 
-        <div className={`hexbox ${showBox ? 'open' : ' close'}`}>
-          <div className="arrow_btc" onClick={toggleModal}>
-            {!showBox
-              ? (
-                  <AiOutlineArrowLeft />
-                )
-              : (
-                  <AiOutlineArrowRight />
-                )}
-          </div>
-          <S.Cursor>
-            <div className="textArea">
-              {hexTitle.length === 15
-                ? (
-                    <div className="hex_title">
-                      <div className="flex_sc">
-                        <div>{hexTitle}</div>
-                        <CopyToClipboard
-                          text={hexTitle}
-                          className=""
-                        />
-                      </div>
-                    </div>
-                  )
-                : (
-                    <div
-                      className="hex_title csp"
-                      onClick={hexClick}
-                    >
-                      {hexTitle}
-                    </div>
-                  )}
-            </div>
-          </S.Cursor>
-
-          {cardLoading
+      <div className={`hexbox ${showBox ? 'open' : ' close'}`}>
+        <div className="arrow_btc" onClick={toggleModal}>
+          {!showBox
             ? (
-                <Center h="80%">
-                  <Spinner
-                    thickness="4px"
-                    speed="0.65s"
-                    color="#25d30f"
-                    size="xl"
-                  />
-                </Center>
+                <AiOutlineArrowLeft />
               )
             : (
-                <div>
-                  <div className="cardboxes">
-                    <div className="cardbox">
-                      <div className="cardWrapper">
-                        <div
-                          onClick={toggle1004}
-                          className="card card--secondary"
-                        >
-                          <span className="card__content">
-                            <IoCellularOutline />
-                            <span className="space_title">
-                              1004
-                            </span>
-                          </span>
-                          <span className="card__glitch"></span>
-                          <span className="card__label">
-                            MEP
-                          </span>
-                        </div>
-                      </div>
-                      {mep1004Show
-                        ? (
-                            <div className="txList">
-                              {hexMiners.map(
-                                (miner: any, index: number) => {
-                                  return (
-                                    <div
-                                      onClick={() =>
-                                        minerClick(
-                                          miner,
-                                        )}
-                                      key={index}
-                                      className="txItem"
-                                    >
-                                      {miner.name
-                                        || miner.SNCode}
-                                    </div>
-                                  )
-                                },
-                              )}
-                            </div>
-                          )
-                        : null}
-                    </div>
-
-                    <div className="cardbox">
-                      <div className="cardWrapper">
-                        <div
-                          onClick={toggleNft}
-                          className="card card--secondary"
-                        >
-                          <span className="card__content">
-                            <MdOutlineSensors />
-                            <span className="space_title">
-                              721
-                            </span>
-                          </span>
-                          <span className="card__glitch"></span>
-                          <span className="card__label">
-                            MEP
-                          </span>
-                        </div>
-                      </div>
-                      {mepNftShow
-                        ? (
-                            <div className="txList">
-                              {hexNFTs.map(
-                                (nft: any, index: number) => {
-                                  return (
-                                    <div
-                                      onClick={() =>
-                                        nftClick(nft)}
-                                      key={index}
-                                      className="txItem"
-                                    >
-                                      {nft.name}
-                                    </div>
-                                  )
-                                },
-                              )}
-                            </div>
-                          )
-                        : null}
-                    </div>
-                  </div>
-                </div>
+                <AiOutlineArrowRight />
               )}
         </div>
+        <S.Cursor>
+          <div className="textArea">
+            {hexTitle.length === 15
+              ? (
+                  <div className="hex_title">
+                    <div className="flex_sc">
+                      <div>{hexTitle}</div>
+                      <CopyToClipboard
+                        text={hexTitle}
+                        className=""
+                      />
+                    </div>
+                  </div>
+                )
+              : (
+                  <div
+                    className="hex_title csp"
+                    onClick={hexClick}
+                  >
+                    {hexTitle}
+                  </div>
+                )}
+          </div>
+        </S.Cursor>
+
+        {cardLoading
+          ? (
+              <Center h="80%">
+                <Spinner
+                  thickness="4px"
+                  speed="0.65s"
+                  color="#25d30f"
+                  size="xl"
+                />
+              </Center>
+            )
+          : (
+              <div>
+                <div className="cardboxes">
+                  <div className="cardbox">
+                    <div className="cardWrapper">
+                      <div
+                        onClick={toggle1004}
+                        className="card card--secondary"
+                      >
+                        <span className="card__content">
+                          <IoCellularOutline />
+                          <span className="space_title">
+                            1004
+                          </span>
+                        </span>
+                        <span className="card__glitch"></span>
+                        <span className="card__label">
+                          MEP
+                        </span>
+                      </div>
+                    </div>
+                    {mep1004Show
+                      ? (
+                          <div className="txList">
+                            {hexMiners.map(
+                              (miner: any, index: number) => {
+                                return (
+                                  <div
+                                    onClick={() =>
+                                      minerClick(
+                                        miner,
+                                      )}
+                                    key={index}
+                                    className="txItem"
+                                  >
+                                    {miner.name
+                                      || miner.SNCode}
+                                  </div>
+                                )
+                              },
+                            )}
+                          </div>
+                        )
+                      : null}
+                  </div>
+
+                  <div className="cardbox">
+                    <div className="cardWrapper">
+                      <div
+                        onClick={toggleNft}
+                        className="card card--secondary"
+                      >
+                        <span className="card__content">
+                          <MdOutlineSensors />
+                          <span className="space_title">
+                            721
+                          </span>
+                        </span>
+                        <span className="card__glitch"></span>
+                        <span className="card__label">
+                          MEP
+                        </span>
+                      </div>
+                    </div>
+                    {mepNftShow
+                      ? (
+                          <div className="txList">
+                            {hexNFTs.map(
+                              (nft: any, index: number) => {
+                                return (
+                                  <div
+                                    onClick={() =>
+                                      nftClick(nft)}
+                                    key={index}
+                                    className="txItem"
+                                  >
+                                    {nft.name}
+                                  </div>
+                                )
+                              },
+                            )}
+                          </div>
+                        )
+                      : null}
+                  </div>
+                </div>
+              </div>
+            )}
       </div>
-    </>
+    </div>
   )
 }
 export default Mapper
