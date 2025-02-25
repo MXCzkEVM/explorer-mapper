@@ -19,6 +19,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'MoonchainMapper',
       fileName: 'index',
+      formats: ['cjs', 'es'],
     },
     rollupOptions: {
       external: [
