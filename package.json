@@ -1,7 +1,7 @@
 {
   "name": "@moonchain/react-mapper",
   "type": "module",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "packageManager": "pnpm@9.5.0",
   "exports": {
     ".": {
@@ -15,7 +15,8 @@
   "types": "./index.d.ts",
   "files": [
     "dist",
-    "index.d.ts"
+    "index.d.ts",
+    "src"
   ],
   "scripts": {
     "dev": "vite",
