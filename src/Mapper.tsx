@@ -1,6 +1,6 @@
 import type { Mapper as MapperType } from './Mapper.type'
-import { Ready } from './components/Ready'
 import { Content } from './Mapper.content'
+import { Ready } from './Mapper.ready'
 
 export const Mapper: MapperType = (props) => {
   return (

@@ -1,4 +1,5 @@
-/* eslint-disable ts/no-redeclare */
-import type { Mapper } from './src/Mapper.type'
+import type { Mapper as MapperComponent } from './src/Mapper.type'
 
-export const Mapper: Mapper
+export const Mapper: MapperComponent
+
+export default Mapper
