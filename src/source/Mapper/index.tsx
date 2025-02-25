@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable ts/no-use-before-define */
-/* eslint-disable react/no-nested-components */
+
 import {
   Center,
   Spinner,
@@ -289,7 +289,7 @@ function Mapper(props: { query?: any }) {
         setShowMap(true)
       },
     })
-    return <></>
+    return null
   }
 
   const hexClick = () => {
